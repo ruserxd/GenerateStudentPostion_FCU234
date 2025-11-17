@@ -4,6 +4,7 @@
 #include "Student.cpp"
 #include "ReadTxt.cpp"
 #include "RandomSort.cpp"
+#include "GenerateXlsx.cpp"
 using namespace std;
 
 int main() {
@@ -17,8 +18,10 @@ int main() {
     RandomSort rs;
     rs.randomSort(students);
 
-    for (auto s:students)
-        cout << s.name << endl;
-
+    // 生成 excel (xlsx)
+    GenerateXlsx gx;
+    gx.generateSeating(students);
+    gx.display();
+    gx.saveToXLSX("座位表.xlsx");
     return 0;
 }
